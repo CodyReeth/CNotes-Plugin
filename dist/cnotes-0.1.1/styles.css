@@ -1,0 +1,206 @@
+.cnotes-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.cnotes-layer[hidden] {
+  display: none;
+}
+.cnotes-anchor {
+  height: 8px;
+  min-height: 8px;
+  pointer-events: none;
+}
+.cnotes-gap {
+  display: inline-block;
+  height: 1px;
+  pointer-events: none;
+  user-select: none;
+}
+.cnotes-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  pointer-events: auto;
+  min-width: 96px;
+  min-height: 64px;
+  color: var(--text-normal);
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 9px;
+  box-shadow: 0 3px 14px #00000015;
+  overflow: hidden;
+}
+.cnotes-card.is-dragging {
+  opacity: 0.9;
+  box-shadow: 0 8px 26px #00000030;
+  outline: 2px solid var(--interactive-accent);
+}
+.cnotes-card:focus-within {
+  border-color: var(--interactive-accent);
+}
+.cnotes-card-header {
+  display: flex;
+  flex: 0 0 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding: 0 5px;
+}
+.cnotes-card-header button {
+  height: 24px;
+  padding: 0 7px;
+  box-shadow: none;
+  background: transparent;
+  border: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.cnotes-card-header .cnotes-drag-handle {
+  flex: 1;
+  text-align: left;
+  cursor: grab;
+  touch-action: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.cnotes-card-header .cnotes-drag-handle:active {
+  cursor: grabbing;
+}
+.cnotes-card-header button:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+.cnotes-card-content {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+}
+.cnotes-image {
+  z-index: 2;
+}
+.cnotes-image .cnotes-card-content {
+  cursor: grab;
+  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+}
+.cnotes-image .cnotes-card-content > * {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+}
+.cnotes-image .cnotes-card-content img,
+.cnotes-image .cnotes-card-content svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.cnotes-image .internal-embed,
+.cnotes-image .excalidraw-svg {
+  width: 100%;
+  height: 100%;
+}
+.cnotes-preview-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cnotes-preview-body > p {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cnotes-resize {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  cursor: nwse-resize;
+  touch-action: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 7px 0 0 0;
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  z-index: 3;
+}
+.cnotes-code .cm-editor {
+  min-height: 100%;
+  font-family: var(--font-monospace);
+  font-size: var(--code-size);
+  background: var(--code-background);
+}
+.cnotes-active .cnotes-code .cm-editor .cm-scroller {
+  overflow: visible;
+  font-family: var(--font-monospace);
+  line-height: 1.55;
+}
+.cnotes-code .cm-content {
+  padding: 10px 12px 18px;
+  caret-color: var(--text-normal);
+}
+.cnotes-code .cm-line {
+  padding: 0;
+}
+.cnotes-code .cm-focused {
+  outline: none;
+}
+.cnotes-code .cm-selectionBackground {
+  background: var(--text-selection) !important;
+}
+.cnotes-token-keyword {
+  color: var(--code-keyword, #b465bd);
+}
+.cnotes-token-string {
+  color: var(--code-string, #70984f);
+}
+.cnotes-token-comment {
+  color: var(--code-comment, #89919b);
+  font-style: italic;
+}
+.cnotes-token-number {
+  color: var(--code-value, #d29655);
+}
+.cnotes-token-builtin {
+  color: var(--code-function, #5996b2);
+}
+.cnotes-token-operator {
+  color: var(--code-operator, #a583c1);
+}
+.cnotes-token-decorator {
+  color: var(--code-tag, #b99756);
+}
+.cnotes-active::before {
+  content: "CNOTES";
+  position: absolute;
+  right: 16px;
+  top: 4px;
+  z-index: 6;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  pointer-events: none;
+}

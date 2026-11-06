@@ -1,0 +1,9 @@
+{
+  "id": "cnotes",
+  "name": "CNotes",
+  "version": "0.1.1",
+  "minAppVersion": "1.14.4",
+  "description": "Freely position images and editable code in Markdown notes.",
+  "author": "CNotes",
+  "isDesktopOnly": true
+}
